@@ -43,13 +43,18 @@ CREATE PROCEDURE Even_numbers(n INT) --ввод числа, до которог�
 BEGIN
     SET @i := 2;
     SET @result := '';
-    WHILE @i < n DO
+    WHILE @i <= n DO
         SET @result = CONCAT(@result, ' ', @i);
         SET @i = @i + 2;
     END WHILE;
-    SELECT @result;
+
+    IF n % 2 = 0 THEN
+        SET @result = CONCAT(@result, ' ', n);
+    END IF;
+
+    SELECT TRIM(LEADING ' ' FROM @result);
 END $$
 
 DELIMITER ;
 
-CALL Even_numbers;
+CALL Even_numbers(11);
