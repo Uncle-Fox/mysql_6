@@ -39,11 +39,11 @@ CALL find_days(90020);
 --- Решение второй задачи ---
 DELIMITER $$
 
-CREATE PROCEDURE Even_numbers()
+CREATE PROCEDURE Even_numbers(n INT) --ввод числа, до которого программа выдаст все четные числа, начиная от 1
 BEGIN
     SET @i := 2;
     SET @result := '';
-    WHILE @i < 11 DO
+    WHILE @i < n DO
         SET @result = CONCAT(@result, ' ', @i);
         SET @i = @i + 2;
     END WHILE;
