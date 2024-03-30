@@ -5,30 +5,6 @@
 --- Решение первой задачи ---
 DELIMITER $$
 
-CREATE PROCEDURE Even_numbers()
-BEGIN
-    SET @i := 2;
-    SET @result := '';
-    WHILE @i < 11 DO
-        SET @result = CONCAT(@result, ' ', @i);
-        SET @i = @i + 2;
-    END WHILE;
-    SELECT @result;
-END $$
-
-DELIMITER ;
-
-CALL Even_numbers;
-
-
-
--- 2. Выведите только четные числа от 1 до 10. 
--- Пример: 2,4,6,8,10 
-
-
---- Решение второй задачи ---
-DELIMITER $$
-
 CREATE PROCEDURE find_days(n INT)
 BEGIN
     DECLARE result VARCHAR(50);
@@ -53,3 +29,27 @@ END$$
 DELIMITER ;
 
 CALL find_days(90020);
+
+
+
+-- 2. Выведите только четные числа от 1 до 10. 
+-- Пример: 2,4,6,8,10 
+
+
+--- Решение второй задачи ---
+DELIMITER $$
+
+CREATE PROCEDURE Even_numbers()
+BEGIN
+    SET @i := 2;
+    SET @result := '';
+    WHILE @i < 11 DO
+        SET @result = CONCAT(@result, ' ', @i);
+        SET @i = @i + 2;
+    END WHILE;
+    SELECT @result;
+END $$
+
+DELIMITER ;
+
+CALL Even_numbers;
